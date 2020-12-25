@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    
+    <script type="text/javascript" src="jquery1.js"></script>
+   
+   
+<style>
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+    h1{
+    color:yellow;
+        font-size:100px;
+    }
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#transliterateDiv{
+  margin:auto;
+}
+#button{
+  width:100px;
+  height:100px;
+  margin:20px auto;
+}
+#button1{
+  width:100px;
+  height:50px;
+  color:white;
+  background-color: rgb(19, 19, 189);
+}
+</style>        
+        
+        
+</head>
+
+<body>
+    
+    
+<script type="text/javascript" src="japi.js"></script>
+   
+
+ 
+  
+                                 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+                                <script type="text/javascript">
+                            
+                                  // Load the Google Transliterate API
+                                  google.load("elements", "1", {
+                                        packages: "transliteration"
+                                      });
+                            
+                                  function onLoad() {
+                                    var options = {
+                                        sourceLanguage:
+                                            google.elements.transliteration.LanguageCode.ENGLISH,
+                                        destinationLanguage:
+                                            [google.elements.transliteration.LanguageCode.TAMIL],
+                                        shortcutKey: 'ctrl+g',
+                                        transliterationEnabled: true
+                                    };
+                            
+                                    // Create an instance on TransliterationControl with the required
+                                    // options.
+                                    var control =
+                                        new google.elements.transliteration.TransliterationControl(options);
+                            
+                                    // Enable transliteration in the editable DIV with id
+                                    // 'transliterateDiv'.
+                                    control.makeTransliteratable(['transliterateDiv']);
+                                  }
+                                  google.setOnLoadCallback(onLoad);
+                                </script>
+    <div class="container">
+                       <img src="bg.png" width="1000" height="400"/> 
+        <div id="text1" class="centered">
+        
+        </div>
+    </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                           <div id="transliterateDiv" contenteditable="true" 
+                           style="width:250px;height:100px;border:1px solid;overflow-y:auto; text-align: left !important;"></div>
+                            </div>
+                       
+                        
+                      <div id="button">       
+                        <button id="button1" onclick="clicked()">click me</button>
+                      </div>
+                        <script>
+                            function clicked(){
+                                var regex = /( |<([^>]+)>)/ig;
+                        var details= document.getElementById("transliterateDiv").innerHTML;
+                                console.log(details);
+                               // details=details.replace(regex,"");
+                                var div = document.getElementById('text1');
+                        
+                              console.log(details);
+                                 div.innerHTML ="<h1>"+details+"</h1>";
+            
+                            }
+                        </script>
+                      
+    <script src="translib.js"></script>   
+    
+</body>
+
+</html>

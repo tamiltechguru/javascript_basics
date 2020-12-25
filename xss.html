@@ -1,0 +1,53 @@
+<html>
+<head> </head>
+   <style type="text/css">
+            h1{
+                text-align:center;
+            }
+           #block1{
+               width:300px;
+               margin:auto;
+           }
+           button{
+               display:block;
+               margin-top:10px;
+            
+           }
+           #content{
+               font-size:30px;
+               font-weight:bold;
+               width:300px;
+               margin: 30px auto;
+
+               
+           }
+</style> 
+<body id="body1">
+    <div id="container">
+    <h1>HACKING EXAMPLE</h1>
+    <div id="block1">
+<textarea style="font-size:30px;width:300px" id="textarea1"></textarea>
+<br>
+<button onclick="execute()">execute</button>
+    </div>
+
+<div id="content"> 
+    </div>
+</div>
+<script>
+     function execute(){
+         //var p=document.createElement("p");
+         var div=document.getElementById('content');
+         var textnode = document.createTextNode(document.getElementById('textarea1').value);
+         //p.appendChild(textnode); 
+         div.innerHTML=document.getElementById('textarea1').value;
+         
+     }
+    </script>
+</body>
+</html>
+
+<!--
+
+    <img src="pimblee" onerror='document.body.innerHTML="<h1 style=\"color:red;font-size:300px\">HACKED</h1>"' />
+-->
